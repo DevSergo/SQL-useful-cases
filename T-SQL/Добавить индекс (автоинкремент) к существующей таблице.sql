@@ -7,7 +7,8 @@ ALTER TABLE dbo.TestTableB
 ADD [idx] BIGINT IDENTITY;
 GO
 
---  это более правильный способ с использованием CONSTRAINT 
+  
+--  ниже более правильный способ с использованием CONSTRAINT 
 
 use myTestDB;
 ALTER TABLE dbo.TestTableB ADD CONSTRAINT PK_idx PRIMARY KEY NONCLUSTERED ([idx], summ);
