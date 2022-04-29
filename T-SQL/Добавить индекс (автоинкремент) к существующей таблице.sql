@@ -1,10 +1,14 @@
---подключаем базу myTestDB
---добавляем индексное автоинкрементное поле pmid к таблице TestTableB
-
---ВОЗМОЖНО. более правильно будет сделать через CONSTRAINT
---надо бы изучить этот вопрос тут https://stackoverflow.com/questions/11794659/add-primary-key-to-existing-table
+--  29.04.2022
+--  подключаем базу myTestDB
+--  добавляем Столбец Идентификаторов (индексное автоинкрементное поле) idx к таблице TestTableB
 
 use myTestDB;
 ALTER TABLE dbo.TestTableB 
-ADD pmid BIGINT IDENTITY;
+ADD [idx] BIGINT IDENTITY;
+GO
+
+--  это более правильный способ с использованием CONSTRAINT 
+
+use myTestDB;
+ALTER TABLE dbo.TestTableB ADD CONSTRAINT PK_idx PRIMARY KEY NONCLUSTERED ([idx], summ);
 GO
